@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Github, Linkedin, FileText, Send } from 'lucide-react';
+import { trackEvent } from '../analytics.js';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -7,6 +8,7 @@ export default function Contact() {
 
   const handleSend = () => {
     if (form.name && form.email && form.message) {
+      trackEvent('contact_submit');
       setSent(true);
       setTimeout(() => {
         setSent(false);
@@ -81,7 +83,7 @@ export default function Contact() {
           {socials.map((s, i) => {
             const Icon = s.icon;
             return (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className={`doodle-border bg-white dark:bg-[#211d18] p-4 doodle-shadow flex items-center gap-3 wobble ${s.tilt}`}>
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('social_click', { network: s.label })} className={`doodle-border bg-white dark:bg-[#211d18] p-4 doodle-shadow flex items-center gap-3 wobble ${s.tilt}`}>
                 <div className="w-12 h-12 doodle-border-2 flex items-center justify-center text-white shrink-0" style={{ backgroundColor: s.color }}>
                   <Icon size={22}/>
                 </div>

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Pause } from 'lucide-react';
 import { Grenade, Boom } from './Doodles.jsx';
+import { trackEvent } from '../analytics.js';
 
 // Bomb on the hero: blow it up to start the Mini Militia theme, pause to stop.
 export default function MusicBomb() {
@@ -21,6 +22,7 @@ export default function MusicBomb() {
   ];
 
   const blow = () => {
+    trackEvent('music_play', { mode: started ? 'resume' : 'blow' });
     setStarted(true);
     setBursting(true);
     const a = audioRef.current;
@@ -33,6 +35,7 @@ export default function MusicBomb() {
   };
 
   const pause = () => {
+    trackEvent('music_pause');
     if (audioRef.current) audioRef.current.pause();
     setPlaying(false);
   };

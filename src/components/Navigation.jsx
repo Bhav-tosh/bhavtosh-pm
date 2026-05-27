@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Lamp } from './Doodles.jsx';
+import { trackEvent } from '../analytics.js';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,12 @@ export default function Navigation() {
 
   // Lamp ON = light mode, lamp OFF = dark mode.
   const lampOn = !dark;
+
+  const toggleTheme = () => {
+    const next = !dark;
+    trackEvent('theme_toggle', { theme: next ? 'dark' : 'light' });
+    setDark(next);
+  };
 
   useEffect(() => {
     const root = document.documentElement;
@@ -53,7 +60,7 @@ export default function Navigation() {
 
           {/* Hanging lamp: pull it to switch modes */}
           <button
-            onClick={() => setDark((d) => !d)}
+            onClick={toggleTheme}
             className="lamp-toggle -mt-4 shrink-0"
             aria-label={lampOn ? 'Turn off the lamp (switch to dark mode)' : 'Turn on the lamp (switch to light mode)'}
             title={lampOn ? 'Lights on — click for dark mode' : 'Lights off — click for light mode'}

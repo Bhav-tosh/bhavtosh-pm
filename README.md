@@ -42,6 +42,16 @@ A doodle/sketch-styled portfolio inspired by Mini Militia's hand-drawn aesthetic
 - Update social links in `src/components/Contact.jsx`
 - Replace resume link with your Google Drive URL in `Hero.jsx`
 
+## 📈 Google Analytics
+
+Analytics is wired up with GA4 (`gtag.js`) and loads **only in production builds** when a Measurement ID is present.
+
+1. Get a Measurement ID (`G-XXXXXXXXXX`) at [analytics.google.com](https://analytics.google.com) → Admin → Property → Web data stream.
+2. Local: copy `.env.example` to `.env` and set `VITE_GA_ID=G-XXXXXXXXXX`.
+3. Hosting (Vercel/Netlify): add an env var `VITE_GA_ID` with the same value, then redeploy.
+
+Custom events tracked (besides the default `page_view`): `music_play` / `music_pause`, `theme_toggle`, `resume_click`, `social_click`, `contact_submit`. See them live in GA4 under **Reports → Realtime**.
+
 ## 🚢 Deploy
 
 **Vercel:** Push to GitHub, import project, deploy.

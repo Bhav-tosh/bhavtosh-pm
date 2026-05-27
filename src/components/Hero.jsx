@@ -1,6 +1,7 @@
 import { Download } from 'lucide-react';
 import { StickHero, Boom } from './Doodles.jsx';
 import MusicBomb from './MusicBomb.jsx';
+import { trackEvent } from '../analytics.js';
 
 export default function Hero() {
   const stats = [
@@ -34,7 +35,7 @@ export default function Hero() {
             <a href="#work" className="doodle-border doodle-shadow bg-[#dc2626] text-white px-6 py-3 font-marker text-lg wobble flex items-center gap-2">
               Explore My Work <span>→</span>
             </a>
-            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" className="doodle-border doodle-shadow bg-white dark:bg-[#211d18] px-6 py-3 font-marker text-lg wobble flex items-center gap-2">
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('resume_click')} className="doodle-border doodle-shadow bg-white dark:bg-[#211d18] px-6 py-3 font-marker text-lg wobble flex items-center gap-2">
               <Download size={20}/> Resume
             </a>
           </div>
