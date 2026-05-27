@@ -2,7 +2,9 @@
 // The Measurement ID (G-XXXXXXXXXX) is not secret, but keeping it in an env
 // var means no tracking during local dev and nothing hard-coded in the repo.
 
-const GA_ID = import.meta.env.VITE_GA_ID;
+// Measurement ID: use VITE_GA_ID if set, otherwise fall back to the site's ID.
+// (A GA4 ID is not secret — it's always exposed in client-side code.)
+const GA_ID = import.meta.env.VITE_GA_ID || 'G-CPED63RWSH';
 const ENABLED = import.meta.env.PROD && Boolean(GA_ID);
 
 export function initAnalytics() {
