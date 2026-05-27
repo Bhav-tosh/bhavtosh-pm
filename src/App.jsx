@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation.jsx';
 import Hero from './components/Hero.jsx';
 import CurrentWork from './components/CurrentWork.jsx';
@@ -5,11 +6,27 @@ import CaseStudies from './components/CaseStudies.jsx';
 import OtherProjects from './components/OtherProjects.jsx';
 import Skills from './components/Skills.jsx';
 import Contact from './components/Contact.jsx';
+import LoadingScreen from './components/LoadingScreen.jsx';
+import ShootingRange from './components/ShootingRange.jsx';
+import MissionHUD from './components/MissionHUD.jsx';
+import AchievementToaster from './components/AchievementToaster.jsx';
 import { Grenade, Star } from './components/Doodles.jsx';
 
 export default function App() {
+  const [booting, setBooting] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setBooting(false), 1950);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
+      {booting && <LoadingScreen />}
+      <ShootingRange />
+      <MissionHUD />
+      <AchievementToaster />
+
       {/* Floating decorations */}
       <div className="absolute top-32 right-8 w-16 h-20 float-anim opacity-60 pointer-events-none">
         <Grenade />

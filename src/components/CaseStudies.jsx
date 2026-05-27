@@ -1,9 +1,10 @@
 import { caseStudies } from '../data.js';
 import { Medal } from './Doodles.jsx';
+import Reveal from './Reveal.jsx';
 
 export default function CaseStudies() {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+    <section id="case-studies" className="max-w-7xl mx-auto px-4 md:px-8 py-16">
       <div className="text-center mb-12">
         <div className="font-marker text-xs tracking-widest text-[#dc2626] mb-2">COMPLETED MISSIONS</div>
         <h2 className="font-marker text-4xl md:text-6xl ink-underline inline-block">Case Studies</h2>
@@ -14,7 +15,8 @@ export default function CaseStudies() {
 
       <div className="grid md:grid-cols-2 gap-8">
         {caseStudies.map((cs, i) => (
-          <div key={i} className={`mission-card doodle-border-3 bg-white dark:bg-[#211d18] doodle-shadow-lg overflow-hidden relative ${i % 2 ? 'tilt-2' : 'tilt-1'}`}>
+          <Reveal key={i} delay={(i % 2) * 120}>
+          <div className={`mission-card doodle-border-3 bg-white dark:bg-[#211d18] doodle-shadow-lg overflow-hidden relative ${i % 2 ? 'tilt-2' : 'tilt-1'}`}>
             <div className="p-5 border-b-[3px] border-[#1a1a1a] dark:border-[#f0e6cf] flex items-center justify-between" style={{ backgroundColor: cs.color + '20' }}>
               <div>
                 <div className="font-marker text-xs tracking-widest" style={{ color: cs.color }}>{cs.codename}</div>
@@ -54,6 +56,7 @@ export default function CaseStudies() {
               </div>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
     </section>

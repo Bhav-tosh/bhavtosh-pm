@@ -1,5 +1,6 @@
 import { currentWork } from '../data.js';
 import { Crosshair } from './Doodles.jsx';
+import Reveal from './Reveal.jsx';
 
 export default function CurrentWork() {
   return (
@@ -19,7 +20,8 @@ export default function CurrentWork() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {currentWork.map((w, i) => (
-          <div key={i} className={`mission-card doodle-border bg-white dark:bg-[#211d18] p-6 doodle-shadow relative ${i % 3 === 0 ? 'tilt-1' : i % 3 === 1 ? 'tilt-2' : 'tilt-3'}`}>
+          <Reveal key={i} delay={(i % 2) * 120}>
+          <div className={`mission-card doodle-border bg-white dark:bg-[#211d18] p-6 doodle-shadow relative ${i % 3 === 0 ? 'tilt-1' : i % 3 === 1 ? 'tilt-2' : 'tilt-3'}`}>
             <div className="tape w-20 h-6 -top-3 left-8" style={{ transform: 'rotate(-4deg)' }}></div>
             <div className="flex items-start justify-between mb-3">
               <span className="font-marker text-xs tracking-widest px-3 py-1 doodle-border-2 text-white" style={{ backgroundColor: w.color }}>
@@ -39,6 +41,7 @@ export default function CurrentWork() {
               ))}
             </ul>
           </div>
+          </Reveal>
         ))}
       </div>
     </section>

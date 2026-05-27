@@ -1,4 +1,4 @@
-export const StickHero = ({ className = "" }) => (
+export const StickHero = ({ className = "", eyeX = 0, eyeY = 0 }) => (
   <svg viewBox="0 0 260 360" className={className} xmlns="http://www.w3.org/2000/svg">
     {/* Spiky hair */}
     <path d="M 78 78 L 70 38 L 90 58 L 95 25 L 115 52 L 125 18 L 145 50 L 158 28 L 170 55 L 185 40 L 182 78 Z"
@@ -22,10 +22,12 @@ export const StickHero = ({ className = "" }) => (
     {/* Eyes */}
     <ellipse cx="105" cy="125" rx="8" ry="10" fill="white" stroke="#1a1a1a" strokeWidth="2.5"/>
     <ellipse cx="155" cy="125" rx="8" ry="10" fill="white" stroke="#1a1a1a" strokeWidth="2.5"/>
-    <circle cx="107" cy="128" r="4.5" fill="#1a1a1a"/>
-    <circle cx="157" cy="128" r="4.5" fill="#1a1a1a"/>
-    <circle cx="109" cy="125" r="1.8" fill="white"/>
-    <circle cx="159" cy="125" r="1.8" fill="white"/>
+    <g transform={`translate(${eyeX} ${eyeY})`} style={{ transition: 'transform 0.08s linear' }}>
+      <circle cx="107" cy="128" r="4.5" fill="#1a1a1a"/>
+      <circle cx="157" cy="128" r="4.5" fill="#1a1a1a"/>
+      <circle cx="109" cy="125" r="1.8" fill="white"/>
+      <circle cx="159" cy="125" r="1.8" fill="white"/>
+    </g>
 
     {/* Eyebrows */}
     <path d="M 95 112 Q 105 108 115 112" stroke="#1a1a1a" strokeWidth="3" fill="none" strokeLinecap="round"/>
