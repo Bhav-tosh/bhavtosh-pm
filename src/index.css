@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&family=Bangers&family=Caveat:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  background-color: #f5edd6;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(59, 130, 246, 0.15) 31px, rgba(59, 130, 246, 0.15) 32px),
+    linear-gradient(90deg, transparent 0%, transparent 79px, rgba(220, 38, 38, 0.3) 79px, rgba(220, 38, 38, 0.3) 80px, transparent 80px);
+}
+
+.font-marker { font-family: 'Permanent Marker', cursive; }
+.font-hand { font-family: 'Patrick Hand', cursive; }
+.font-bangers { font-family: 'Bangers', cursive; letter-spacing: 2px; }
+.font-caveat { font-family: 'Caveat', cursive; }
+
+.doodle-border {
+  border: 3px solid #1a1a1a;
+  border-radius: 22px 6px 18px 8px / 8px 22px 6px 18px;
+  position: relative;
+}
+.doodle-border-2 {
+  border: 3px solid #1a1a1a;
+  border-radius: 8px 24px 6px 20px / 18px 6px 22px 8px;
+}
+.doodle-border-3 {
+  border: 3px solid #1a1a1a;
+  border-radius: 30px 8px 24px 12px / 12px 28px 8px 24px;
+}
+
+.doodle-shadow { box-shadow: 4px 4px 0 #1a1a1a; }
+.doodle-shadow-lg { box-shadow: 6px 6px 0 #1a1a1a; }
+
+.wobble:hover { animation: wobble 0.6s ease-in-out; }
+@keyframes wobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-3deg) scale(1.03); }
+  75% { transform: rotate(3deg) scale(1.03); }
+}
+
+.float-anim { animation: float 4s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.spin-slow { animation: spinSlow 12s linear infinite; }
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.pulse-red { animation: pulseRed 1.8s ease-in-out infinite; }
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6); }
+  50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+}
+
+.ink-underline {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'><path d='M5 6 Q 30 2, 60 6 T 120 6 T 195 6' stroke='%23dc2626' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 10px;
+  padding-bottom: 12px;
+}
+
+.tape {
+  position: absolute;
+  background: rgba(251, 191, 36, 0.7);
+  border-left: 1px dashed rgba(0, 0, 0, 0.2);
+  border-right: 1px dashed rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.scribble-line {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 8'><path d='M2 4 Q 20 1, 40 4 T 80 4 T 120 4 T 160 4 T 200 4 T 240 4 T 295 4' stroke='%231a1a1a' stroke-width='2' fill='none'/></svg>");
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 8px;
+}
+
+.tilt-1 { transform: rotate(-1.5deg); }
+.tilt-2 { transform: rotate(1.2deg); }
+.tilt-3 { transform: rotate(-0.8deg); }
+
+.sticker:hover { transform: scale(1.1) rotate(-5deg); transition: transform 0.2s; }
+
+.stat-card { transition: all 0.2s; }
+.stat-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #1a1a1a;
+}
+
+.mission-card { transition: all 0.25s; }
+.mission-card:hover {
+  transform: translate(-3px, -3px) rotate(-0.5deg);
+  box-shadow: 8px 8px 0 #1a1a1a;
+}
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #dc2626;
+  transition: width 0.3s;
+  border-radius: 2px;
+}
+.nav-link:hover::after { width: 100%; }
