@@ -1,5 +1,6 @@
 import { Download } from 'lucide-react';
 import { StickHero, Boom } from './Doodles.jsx';
+import MusicBomb from './MusicBomb.jsx';
 
 export default function Hero() {
   const stats = [
@@ -42,6 +43,11 @@ export default function Hero() {
         <div className="relative flex justify-center items-center">
           <div className="absolute -top-4 -left-4 w-32 h-20 hidden md:block">
             <Boom text="POW!" rotate={-12} />
+          </div>
+
+          {/* Blow this bomb to play the soundtrack */}
+          <div className="absolute bottom-0 left-0 md:-left-4 z-20">
+            <MusicBomb />
           </div>
           <div className="relative float-anim">
             <StickHero className="w-72 md:w-96" />

@@ -160,3 +160,68 @@ body {
   75% { transform: rotate(-4deg); }
 }
 .lamp-glow { filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9)); }
+
+/* ===== MUSIC BOMB ===== */
+.bomb-idle { animation: bombBob 2.2s ease-in-out infinite; }
+@keyframes bombBob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-7px) rotate(4deg); }
+}
+
+.fuse-spark { animation: fuseSpark 0.45s ease-in-out infinite; transform-origin: center; }
+@keyframes fuseSpark {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.45; transform: scale(1.5) rotate(20deg); }
+}
+
+.bomb-shake { animation: bombShake 0.6s ease; }
+@keyframes bombShake {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-5px, 3px) rotate(-8deg); }
+  40% { transform: translate(5px, -3px) rotate(8deg); }
+  60% { transform: translate(-4px, 2px) rotate(-5deg); }
+  80% { transform: translate(4px, -2px) rotate(5deg); }
+}
+
+.explode-burst { animation: explodeBurst 0.7s ease-out forwards; }
+@keyframes explodeBurst {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  30% { transform: scale(1.25) rotate(12deg); opacity: 1; }
+  100% { transform: scale(1.9) rotate(28deg); opacity: 0; }
+}
+
+.boom-ring { animation: boomRing 0.65s ease-out forwards; }
+@keyframes boomRing {
+  0% { transform: scale(0.2); opacity: 0.85; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.boom-particle { animation: boomParticle 0.7s ease-out forwards; }
+@keyframes boomParticle {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--px), var(--py)) scale(0); opacity: 0; }
+}
+
+.eq-bar { animation: eqBar 0.85s ease-in-out infinite; transform-origin: bottom; }
+@keyframes eqBar {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.now-playing-pulse { animation: npPulse 1.6s ease-in-out infinite; }
+@keyframes npPulse {
+  0%, 100% { box-shadow: 4px 4px 0 #1a1a1a, 0 0 0 0 rgba(251, 191, 36, 0.6); }
+  50% { box-shadow: 4px 4px 0 #1a1a1a, 0 0 0 9px rgba(251, 191, 36, 0); }
+}
+.dark .now-playing-pulse {
+  animation: npPulseDark 1.6s ease-in-out infinite;
+}
+@keyframes npPulseDark {
+  0%, 100% { box-shadow: 4px 4px 0 #000, 0 0 0 0 rgba(251, 191, 36, 0.6); }
+  50% { box-shadow: 4px 4px 0 #000, 0 0 0 9px rgba(251, 191, 36, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bomb-idle, .fuse-spark, .bomb-shake, .explode-burst,
+  .boom-ring, .boom-particle, .eq-bar, .now-playing-pulse { animation: none; }
+}
