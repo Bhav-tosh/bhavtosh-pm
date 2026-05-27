@@ -1,46 +1,8 @@
-export const StickHero = ({ className = "", eyeX = 0, eyeY = 0 }) => (
+export const StickHero = ({ className = "" }) => (
   <svg viewBox="0 0 260 360" className={className} xmlns="http://www.w3.org/2000/svg">
-    {/* Spiky hair */}
-    <path d="M 78 78 L 70 38 L 90 58 L 95 25 L 115 52 L 125 18 L 145 50 L 158 28 L 170 55 L 185 40 L 182 78 Z"
-          fill="#f59e0b" stroke="#1a1a1a" strokeWidth="3.5" strokeLinejoin="round"/>
-    <path d="M 95 35 L 100 50 M 130 28 L 135 48 M 165 38 L 168 55" stroke="#fbbf24" strokeWidth="2" fill="none"/>
-
-    {/* AR Goggles */}
-    <rect x="72" y="72" width="116" height="22" rx="4" fill="#1a1a1a"/>
-    <rect x="78" y="76" width="42" height="14" rx="3" fill="#0ea5e9" stroke="#1a1a1a" strokeWidth="2"/>
-    <rect x="140" y="76" width="42" height="14" rx="3" fill="#0ea5e9" stroke="#1a1a1a" strokeWidth="2"/>
-    <rect x="120" y="80" width="20" height="6" fill="#1a1a1a"/>
-    <rect x="82" y="78" width="14" height="4" fill="white" opacity="0.8" rx="1"/>
-    <rect x="144" y="78" width="14" height="4" fill="white" opacity="0.8" rx="1"/>
-    <circle cx="115" cy="83" r="1.5" fill="#dc2626"/>
-    <circle cx="145" cy="83" r="1.5" fill="#dc2626"/>
-
-    {/* Head */}
-    <path d="M 75 95 Q 70 155 95 170 Q 115 178 130 178 Q 145 178 165 170 Q 190 155 185 95 Q 165 92 130 92 Q 95 92 75 95 Z"
-          fill="#fde68a" stroke="#1a1a1a" strokeWidth="3.5"/>
-
-    {/* Eyes */}
-    <ellipse cx="105" cy="125" rx="8" ry="10" fill="white" stroke="#1a1a1a" strokeWidth="2.5"/>
-    <ellipse cx="155" cy="125" rx="8" ry="10" fill="white" stroke="#1a1a1a" strokeWidth="2.5"/>
-    <g transform={`translate(${eyeX} ${eyeY})`} style={{ transition: 'transform 0.08s linear' }}>
-      <circle cx="107" cy="128" r="4.5" fill="#1a1a1a"/>
-      <circle cx="157" cy="128" r="4.5" fill="#1a1a1a"/>
-      <circle cx="109" cy="125" r="1.8" fill="white"/>
-      <circle cx="159" cy="125" r="1.8" fill="white"/>
-    </g>
-
-    {/* Eyebrows */}
-    <path d="M 95 112 Q 105 108 115 112" stroke="#1a1a1a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-    <path d="M 145 112 Q 155 108 165 112" stroke="#1a1a1a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-
-    {/* Nose & smile */}
-    <path d="M 128 142 Q 130 150 132 142" stroke="#1a1a1a" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <path d="M 110 158 Q 130 170 150 158" stroke="#1a1a1a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-    <path d="M 113 160 Q 130 167 147 160" stroke="white" strokeWidth="2" fill="none"/>
-
-    {/* Cheeks */}
-    <ellipse cx="95" cy="150" rx="5" ry="4" fill="#fca5a5" opacity="0.7"/>
-    <ellipse cx="165" cy="150" rx="5" ry="4" fill="#fca5a5" opacity="0.7"/>
+    {/* Cartoonised photo head on the doodle body */}
+    <image href="/me-head.png" x="56" y="34" width="148" height="148" />
+    <circle cx="130" cy="108" r="73" fill="none" stroke="currentColor" strokeWidth="3.5" />
 
     {/* Neck */}
     <rect x="118" y="176" width="24" height="14" fill="#fde68a" stroke="#1a1a1a" strokeWidth="3"/>

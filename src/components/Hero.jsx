@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import { Download } from 'lucide-react';
 import { StickHero, Boom } from './Doodles.jsx';
 import MusicBomb from './MusicBomb.jsx';
@@ -10,27 +9,6 @@ export default function Hero() {
     { n: '3M+', l: 'USERS REACHED', c: '#65a30d' },
     { n: '∞', l: 'AI USE CASES', c: '#9333ea' },
   ];
-
-  // The stick hero's eyes track the cursor.
-  const heroRef = useRef(null);
-  const [eye, setEye] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const onMove = (e) => {
-      const el = heroRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
-      const dist = Math.hypot(dx, dy) || 1;
-      const max = 4.5;
-      setEye({ x: (dx / dist) * max, y: (dy / dist) * max });
-    };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
-  }, []);
 
   return (
     <section id="home" className="relative max-w-7xl mx-auto px-4 md:px-8 pt-12 md:pt-20 pb-16">
@@ -71,8 +49,8 @@ export default function Hero() {
           <div className="absolute bottom-0 left-0 md:-left-4 z-20">
             <MusicBomb />
           </div>
-          <div ref={heroRef} className="relative float-anim wobble">
-            <StickHero className="w-72 md:w-96" eyeX={eye.x} eyeY={eye.y} />
+          <div className="relative float-anim wobble">
+            <StickHero className="w-72 md:w-96" />
             <div className="absolute -right-4 md:-right-8 top-2 doodle-border-2 bg-white dark:bg-[#211d18] px-4 py-2 doodle-shadow font-hand text-sm md:text-base tilt-2 max-w-[140px]">
               Ready to ship!
               <div className="absolute -bottom-3 left-6 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[12px] border-t-[#1a1a1a] dark:border-t-[#f0e6cf]"></div>

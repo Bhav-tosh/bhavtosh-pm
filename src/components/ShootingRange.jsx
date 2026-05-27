@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react';
 // Click anywhere to "shoot": leaves a bullet hole + PEW, and counts hits.
 export default function ShootingRange() {
   const [shots, setShots] = useState([]);
-  const [hits, setHits] = useState(0);
   const idRef = useRef(0);
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function ShootingRange() {
       const y = e.clientY;
       const rot = Math.floor(Math.random() * 60 - 30);
       setShots((prev) => [...prev, { id, x, y, rot }]);
-      setHits((h) => h + 1);
       window.setTimeout(() => {
         setShots((prev) => prev.filter((s) => s.id !== id));
       }, 1100);
@@ -56,16 +54,6 @@ export default function ShootingRange() {
           </div>
         ))}
       </div>
-
-      {/* Hit counter */}
-      {hits > 0 && (
-        <div
-          key={hits}
-          className="hits-counter fixed bottom-4 right-4 z-40 doodle-border-2 doodle-shadow bg-[#1a1a1a] text-[#fbbf24] px-3 py-1.5 font-marker text-sm tilt-2 select-none pointer-events-none"
-        >
-          🎯 HITS: {hits}
-        </div>
-      )}
     </>
   );
 }
