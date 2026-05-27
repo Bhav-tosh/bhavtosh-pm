@@ -1,11 +1,7 @@
 export const StickHero = ({ className = "" }) => (
   <svg viewBox="0 0 260 360" className={className} xmlns="http://www.w3.org/2000/svg">
-    {/* Cartoonised photo head on the doodle body */}
-    <image href="/me-head.png" x="56" y="34" width="148" height="148" />
-    <circle cx="130" cy="108" r="73" fill="none" stroke="currentColor" strokeWidth="3.5" />
-
-    {/* Neck */}
-    <rect x="118" y="176" width="24" height="14" fill="#fde68a" stroke="#1a1a1a" strokeWidth="3"/>
+    {/* Cartoon head on the doodle body */}
+    <image href="/me-head.png" x="63" y="4" width="135" height="205" preserveAspectRatio="xMidYMid meet" />
 
     {/* Hoodie */}
     <path d="M 70 195 Q 60 200 58 235 L 55 280 Q 55 290 65 290 L 195 290 Q 205 290 205 280 L 202 235 Q 200 200 190 195 Q 165 185 130 185 Q 95 185 70 195 Z"
