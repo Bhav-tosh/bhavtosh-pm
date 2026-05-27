@@ -146,6 +146,43 @@ export const Boom = ({ text = "BOOM!", className = "", rotate = -8 }) => (
   </div>
 );
 
+export const Lamp = ({ on = true, className = "" }) => (
+  <svg viewBox="0 0 60 96" className={`${className} ${on ? 'lamp-glow' : ''}`} xmlns="http://www.w3.org/2000/svg">
+    {/* Glow halo when on */}
+    {on && <circle cx="30" cy="52" r="26" fill="#fbbf24" opacity="0.25"/>}
+
+    {/* Cord from ceiling */}
+    <line x1="30" y1="0" x2="30" y2="20" stroke="currentColor" strokeWidth="3"/>
+
+    {/* Lamp shade */}
+    <path d="M 14 20 L 46 20 L 40 40 L 20 40 Z"
+          fill={on ? '#dc2626' : '#6b7280'} stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
+    <line x1="14" y1="20" x2="46" y2="20" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+
+    {/* Bulb */}
+    <circle cx="30" cy="50" r="11"
+            fill={on ? '#fde047' : '#4b5563'} stroke="currentColor" strokeWidth="2.5"/>
+    {/* Filament */}
+    <path d="M 26 50 Q 30 44 34 50" stroke={on ? '#dc2626' : '#1f2937'} strokeWidth="1.8" fill="none"/>
+    {/* Bulb screw base */}
+    <rect x="25" y="59" width="10" height="6" rx="1" fill="currentColor"/>
+
+    {/* Light rays when on */}
+    {on && (
+      <g stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round">
+        <line x1="11" y1="50" x2="4" y2="50"/>
+        <line x1="49" y1="50" x2="56" y2="50"/>
+        <line x1="16" y1="36" x2="10" y2="30"/>
+        <line x1="44" y1="36" x2="50" y2="30"/>
+      </g>
+    )}
+
+    {/* Pull chain + knob */}
+    <line x1="40" y1="48" x2="46" y2="74" stroke="currentColor" strokeWidth="2" strokeDasharray="2,2"/>
+    <circle cx="46" cy="78" r="5" fill={on ? '#fbbf24' : '#9ca3af'} stroke="currentColor" strokeWidth="2.5"/>
+  </svg>
+);
+
 export const Medal = ({ className = "" }) => (
   <svg viewBox="0 0 60 80" className={className} xmlns="http://www.w3.org/2000/svg">
     <path d="M 20 5 L 30 35 L 40 5" fill="#dc2626" stroke="#1a1a1a" strokeWidth="2"/>

@@ -12,23 +12,23 @@ export default function CurrentWork() {
           <div className="font-marker text-xs tracking-widest text-[#dc2626] mb-2">ACTIVE DEPLOYMENT</div>
           <h2 className="font-marker text-4xl md:text-6xl ink-underline">What I'm Building Now</h2>
         </div>
-        <p className="font-hand text-lg md:text-xl mt-6 max-w-2xl mx-auto text-[#404040]">
+        <p className="font-hand text-lg md:text-xl mt-6 max-w-2xl mx-auto text-[#404040] dark:text-[#c9bd9e]">
           Shipping voice AI, conversational bots, and platform tooling powering enterprise AI deployments across India's largest brands.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         {currentWork.map((w, i) => (
-          <div key={i} className={`mission-card doodle-border bg-white p-6 doodle-shadow relative ${i % 3 === 0 ? 'tilt-1' : i % 3 === 1 ? 'tilt-2' : 'tilt-3'}`}>
+          <div key={i} className={`mission-card doodle-border bg-white dark:bg-[#211d18] p-6 doodle-shadow relative ${i % 3 === 0 ? 'tilt-1' : i % 3 === 1 ? 'tilt-2' : 'tilt-3'}`}>
             <div className="tape w-20 h-6 -top-3 left-8" style={{ transform: 'rotate(-4deg)' }}></div>
             <div className="flex items-start justify-between mb-3">
               <span className="font-marker text-xs tracking-widest px-3 py-1 doodle-border-2 text-white" style={{ backgroundColor: w.color }}>
                 {w.tag}
               </span>
-              <span className="font-hand text-xs text-[#525252]">MISSION 0{i+1}</span>
+              <span className="font-hand text-xs text-[#525252] dark:text-[#b8ad8f]">MISSION 0{i+1}</span>
             </div>
             <h3 className="font-marker text-xl md:text-2xl mb-2 leading-tight">{w.title}</h3>
-            <p className="font-hand text-base text-[#404040] mb-4">{w.desc}</p>
+            <p className="font-hand text-base text-[#404040] dark:text-[#c9bd9e] mb-4">{w.desc}</p>
             <div className="scribble-line mb-3"></div>
             <ul className="space-y-2">
               {w.intel.map((line, j) => (

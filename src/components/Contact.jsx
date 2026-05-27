@@ -27,13 +27,13 @@ export default function Contact() {
       <div className="text-center mb-10">
         <div className="font-marker text-xs tracking-widest text-[#dc2626] mb-2">📡 INCOMING TRANSMISSION</div>
         <h2 className="font-marker text-4xl md:text-6xl ink-underline inline-block">Let's Build Something Intelligent</h2>
-        <p className="font-hand text-lg md:text-xl mt-6 max-w-2xl mx-auto text-[#404040]">
+        <p className="font-hand text-lg md:text-xl mt-6 max-w-2xl mx-auto text-[#404040] dark:text-[#c9bd9e]">
           Ready to create AI-first experiences together? I'm always excited to discuss AI product strategy, conversational UX, or how to build better human-AI interactions.
         </p>
       </div>
 
       <div className="grid md:grid-cols-5 gap-6">
-        <div className="md:col-span-3 doodle-border-3 bg-white p-6 doodle-shadow-lg relative">
+        <div className="md:col-span-3 doodle-border-3 bg-white dark:bg-[#211d18] p-6 doodle-shadow-lg relative">
           <div className="tape w-24 h-6 -top-3 left-1/2 -translate-x-1/2" style={{ transform: 'translateX(-50%) rotate(-3deg)' }}></div>
           <div className="font-marker text-sm tracking-widest mb-4 text-[#dc2626]">▸ SEND TRANSMISSION</div>
 
@@ -44,7 +44,7 @@ export default function Contact() {
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full doodle-border-2 bg-[#f5edd6] px-3 py-2 font-hand text-base outline-none"
+                className="w-full doodle-border-2 bg-[#f5edd6] dark:bg-[#2b2620] dark:text-[#f0e6cf] dark:placeholder:text-[#8a8169] px-3 py-2 font-hand text-base outline-none"
                 placeholder="Your name here..."
               />
             </div>
@@ -54,7 +54,7 @@ export default function Contact() {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full doodle-border-2 bg-[#f5edd6] px-3 py-2 font-hand text-base outline-none"
+                className="w-full doodle-border-2 bg-[#f5edd6] dark:bg-[#2b2620] dark:text-[#f0e6cf] dark:placeholder:text-[#8a8169] px-3 py-2 font-hand text-base outline-none"
                 placeholder="you@somewhere.com"
               />
             </div>
@@ -64,7 +64,7 @@ export default function Contact() {
                 rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full doodle-border-2 bg-[#f5edd6] px-3 py-2 font-hand text-base outline-none resize-none"
+                className="w-full doodle-border-2 bg-[#f5edd6] dark:bg-[#2b2620] dark:text-[#f0e6cf] dark:placeholder:text-[#8a8169] px-3 py-2 font-hand text-base outline-none resize-none"
                 placeholder="What's the mission?"
               />
             </div>
@@ -81,7 +81,7 @@ export default function Contact() {
           {socials.map((s, i) => {
             const Icon = s.icon;
             return (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className={`doodle-border bg-white p-4 doodle-shadow flex items-center gap-3 wobble ${s.tilt}`}>
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className={`doodle-border bg-white dark:bg-[#211d18] p-4 doodle-shadow flex items-center gap-3 wobble ${s.tilt}`}>
                 <div className="w-12 h-12 doodle-border-2 flex items-center justify-center text-white shrink-0" style={{ backgroundColor: s.color }}>
                   <Icon size={22}/>
                 </div>

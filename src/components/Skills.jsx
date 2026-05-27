@@ -14,7 +14,7 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {skillCats.map((sc, i) => (
-            <div key={i} className={`doodle-border-2 bg-white p-6 doodle-shadow ${i % 2 ? 'tilt-2' : 'tilt-1'}`}>
+            <div key={i} className={`doodle-border-2 bg-white dark:bg-[#211d18] p-6 doodle-shadow ${i % 2 ? 'tilt-2' : 'tilt-1'}`}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 doodle-border-2 flex items-center justify-center" style={{ backgroundColor: sc.color }}>
                   <Star color="#fff" className="w-6 h-6"/>
@@ -23,7 +23,7 @@ export default function Skills() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {sc.items.map((it, j) => (
-                  <span key={j} className="sticker doodle-border-2 bg-[#f5edd6] px-3 py-1 font-hand text-sm" style={{ borderColor: sc.color }}>
+                  <span key={j} className="sticker doodle-border-2 bg-[#f5edd6] dark:bg-[#2b2620] px-3 py-1 font-hand text-sm" style={{ borderColor: sc.color }}>
                     {it}
                   </span>
                 ))}
@@ -32,7 +32,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="doodle-border bg-[#fbbf24] p-5 doodle-shadow tilt-2 max-w-3xl mx-auto text-center">
+        <div className="doodle-border bg-[#fbbf24] text-[#1a1a1a] p-5 doodle-shadow tilt-2 max-w-3xl mx-auto text-center">
           <div className="font-marker text-sm tracking-widest mb-2">⚡ CURRENTLY TRAINING</div>
           <p className="font-marker text-lg md:text-xl">Agentic Infrastructure · AI for PMs · Framer · Prompt Engineering · Webflow</p>
         </div>
@@ -41,7 +41,7 @@ export default function Skills() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-16">
         <div className="text-center mb-10">
           <h2 className="font-marker text-3xl md:text-5xl ink-underline inline-block">Tools & Tech</h2>
-          <p className="font-hand text-lg mt-4 text-[#404040]">My everyday tactical gear</p>
+          <p className="font-hand text-lg mt-4 text-[#404040] dark:text-[#c9bd9e]">My everyday tactical gear</p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
@@ -49,7 +49,7 @@ export default function Skills() {
             const c = colors[i % colors.length];
             const tilt = ['tilt-1','tilt-2','tilt-3'][i % 3];
             return (
-              <span key={i} className={`sticker doodle-border-2 bg-white px-4 py-2 font-marker text-base doodle-shadow ${tilt}`} style={{ borderColor: c, color: c }}>
+              <span key={i} className={`sticker doodle-border-2 bg-white dark:bg-[#211d18] px-4 py-2 font-marker text-base doodle-shadow ${tilt}`} style={{ borderColor: c, color: c }}>
                 {t}
               </span>
             );

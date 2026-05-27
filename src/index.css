@@ -10,10 +10,36 @@ html {
 
 body {
   font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  color: #1a1a1a;
   background-color: #f5edd6;
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(59, 130, 246, 0.15) 31px, rgba(59, 130, 246, 0.15) 32px),
     linear-gradient(90deg, transparent 0%, transparent 79px, rgba(220, 38, 38, 0.3) 79px, rgba(220, 38, 38, 0.3) 80px, transparent 80px);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ===== DARK MODE ===== */
+/* The doodle aesthetic hardcodes #1a1a1a ink for borders + shadows.
+   In dark mode we flip the "ink" to a warm cream so the hand-drawn look survives. */
+.dark body {
+  color: #f0e6cf;
+  background-color: #15120e;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(96, 165, 250, 0.10) 31px, rgba(96, 165, 250, 0.10) 32px),
+    linear-gradient(90deg, transparent 0%, transparent 79px, rgba(248, 113, 113, 0.22) 79px, rgba(248, 113, 113, 0.22) 80px, transparent 80px);
+}
+
+.dark .doodle-border,
+.dark .doodle-border-2,
+.dark .doodle-border-3 { border-color: #f0e6cf; }
+
+.dark .doodle-shadow { box-shadow: 4px 4px 0 #000; }
+.dark .doodle-shadow-lg { box-shadow: 6px 6px 0 #000; }
+.dark .stat-card:hover { box-shadow: 6px 6px 0 #000; }
+.dark .mission-card:hover { box-shadow: 8px 8px 0 #000; }
+
+.dark .scribble-line {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 8'><path d='M2 4 Q 20 1, 40 4 T 80 4 T 120 4 T 160 4 T 200 4 T 240 4 T 295 4' stroke='%23f0e6cf' stroke-width='2' fill='none'/></svg>");
 }
 
 .font-marker { font-family: 'Permanent Marker', cursive; }
@@ -117,3 +143,20 @@ body {
   border-radius: 2px;
 }
 .nav-link:hover::after { width: 100%; }
+
+/* Hanging lamp toggle */
+.lamp-toggle {
+  transition: transform 0.15s ease;
+  transform-origin: top center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.lamp-toggle:hover { animation: lampSwing 0.7s ease-in-out; }
+@keyframes lampSwing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(4deg); }
+  75% { transform: rotate(-4deg); }
+}
+.lamp-glow { filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9)); }
